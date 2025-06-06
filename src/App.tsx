@@ -5,7 +5,7 @@ function App(){
 
   return(
     <>
-     <header >
+     <header className="">
       <h1>Calculadora de propinas</h1>
      </header>
     </>
