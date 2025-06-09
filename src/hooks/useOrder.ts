@@ -1,12 +1,13 @@
 import { useState } from "react"
 
 
+export default function useOrder() { /*Custome hook */
+    //Aqui van los elementos del menu
+    const [order, setOrder ] = useState([]) 
 
-export default function userOrder(){
+    console.log(order)
 
-    const [order, setOrder] = useState([])
+    return (
 
-    return{
-
-    }
+    )
 }

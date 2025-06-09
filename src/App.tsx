@@ -15,6 +15,7 @@ function App(){
         <h2 className="text-4xl font-black">Menu</h2>
 
         <div className="space-y-2 mt-10"> {/*Componente padre y lo de abajo son componentes hijos */}
+
             {menuItems.map(item => (
               <MenuItem
               key={item.id}
