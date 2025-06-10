@@ -1,5 +1,4 @@
 //.ts solo tiene archivo de Typescript y no codigo de HTML o eventos en React.tsx
-
 import type { MenuItem} from '../types/index.ts'; 
 
 export const menuItems : MenuItem[] = [
