@@ -1,13 +1,18 @@
 import { useState } from "react"
+import type { OrderItem } from '../types'
+
 
 
 export default function useOrder() { /*Custome hook */
     //Aqui van los elementos del menu
-    const [order, setOrder ] = useState([]) 
+    const [order, setOrder ] = useState<OrderItem[]>([]) //Generic <OrderItem[]>
 
-    console.log(order)
+    const addItem = () => {
+        console.log('agregando...')
+    }
 
-    return (
+    return{
+        addItem
 
-    )
+    }
 }
