@@ -4,6 +4,7 @@ import  useOrder  from './hooks/useOrder'
 
 function App(){
 
+  {/*Estado global/global state */}
   const { addItem } = useOrder()
 
   return(
