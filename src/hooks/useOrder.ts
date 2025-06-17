@@ -16,16 +16,16 @@ export default function useOrder() { /*Custome hook */
         //si el item ya esta en el order, no lo agrego
         const itemExist = order.find(orderItem => orderItem.id === item.id)
         if(itemExist){
-            console.log(`El elemento ${itemExist} ya existe`)
-        }else{
-            console.log(`Agregando ${itemExist}`)
+            //creamos un nuevo array con .map() NO MUTATION.Encontrando cual es el id repetido
+            const updatedOrder = order.map( orderItem => orderItem.id === item.id ?
+                {...orderItem, quantity: orderItem.quantity + 1} :
+                orderItem
+            )
+        } else{
+             const newItem = {...item, quantity: 1} //Crea un nuevo objeto
+            setOrder([...order, newItem])
         }
 
-
-
-        
-        const newItem = {...item, quantity: 1} //Crea un nuevo objeto
-        setOrder([...order, newItem])
     }
 
     console.log(order)
