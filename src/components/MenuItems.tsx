@@ -3,7 +3,7 @@ import type { MenuItem } from "../types"
 type MenuItemProps = {
     item: MenuItem,
     addItem: (item: MenuItem) => void
-//addItem?: () => void
+    //addItem?: () => void el ? quiere decir que le podemos pasar el prop o no 
 }
 
 
