@@ -21,6 +21,7 @@ export default function useOrder() { /*Custome hook */
                 {...orderItem, quantity: orderItem.quantity + 1} :
                 orderItem
             )
+            setOrder(updatedOrder)
         } else{
              const newItem = {...item, quantity: 1} //Crea un nuevo objeto
             setOrder([...order, newItem])
@@ -28,9 +29,9 @@ export default function useOrder() { /*Custome hook */
 
     }
 
-    console.log(order)
 
     return{
+        order,
         addItem
 
     }
