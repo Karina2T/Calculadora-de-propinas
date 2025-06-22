@@ -1,3 +1,5 @@
+//Este custom hook es para manejar el estado de la orden en la aplicacion 
+
 import { useState } from "react"
 import type { MenuItem, OrderItem } from '../types'
 
@@ -16,12 +18,12 @@ export default function useOrder() { /*Custome hook */
         //si el item ya esta en el order, no lo agrego
         const itemExist = order.find(orderItem => orderItem.id === item.id)
         if(itemExist){
-            //creamos un nuevo array con .map() NO MUTATION.Encontrando cual es el id repetido
             const updatedOrder = order.map( orderItem => orderItem.id === item.id ?
+            //creamos un nuevo array con .map() NO MUTATION.Encontrando cual es el id repetido
                 {...orderItem, quantity: orderItem.quantity + 1} :
                 orderItem
             )
-            setOrder(updatedOrder)
+            setOrder(updatedOrder)//Seteando la funcion con al variable updateOrder
         } else{
              const newItem = {...item, quantity: 1} //Crea un nuevo objeto
             setOrder([...order, newItem])
@@ -29,10 +31,15 @@ export default function useOrder() { /*Custome hook */
 
     }
 
+    //Funcion para eliminar items de la orden
+    const removeItem = (id: MenuItem['id']) => {
+        console.log("Eliminando item de la ordern")
+    }
+
 
     return{
         order,
-        addItem
-
+        addItem,
+        removeItem //Exportamos la funcion para hacerlo disponible en otros componentes
     }
 }

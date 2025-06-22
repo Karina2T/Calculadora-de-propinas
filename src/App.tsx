@@ -1,12 +1,14 @@
 import MenuItem from "./components/MenuItems";
 import { menuItems } from "./data/db"
 import  useOrder  from './hooks/useOrder'
-import OrderContents from "./components/OrderContents"
+import OrderContents from './components/OrderContents'
+
+
 
 function App(){
 
   {/*Estado global/global state */}
-  const { order, addItem } = useOrder()
+  const { order, addItem, removeItem} = useOrder() //Extraemos la funcion para usarlo en nuestros componentes
  
   return(
     <>
@@ -34,12 +36,14 @@ function App(){
 
 
       <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
+
         <OrderContents
-         order={order}
-        
-        
-        
+        order={order}
+        removeItem={removeItem}
+
+
         />
+
       </div>
       
 
