@@ -1,14 +1,16 @@
 import MenuItem from "./components/MenuItems";
+import OrderContents from './components/OrderContents'
+import OrderTotals from './components/OrderTotals'
+import TipPercentageForm from "./components/TipPercentageForm";
 import { menuItems } from "./data/db"
 import  useOrder  from './hooks/useOrder'
-import OrderContents from './components/OrderContents'
 
 
 
 function App(){
 
   {/*Estado global/global state */}
-  const { order, addItem, removeItem} = useOrder() //Extraemos la funcion para usarlo en nuestros componentes
+  const { order, addItem, removeItem, tip, setTip, placeOrder} = useOrder() //Extraemos la funcion para usarlo en nuestros componentes
  
   return(
     <>
@@ -37,14 +39,32 @@ function App(){
 
       <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
 
-        <OrderContents
-        order={order}
-        removeItem={removeItem}
+        {order.length > 0 ? (
+          <>
+            <OrderContents
+              order={order}
+              removeItem={removeItem}
+            />
 
+            <TipPercentageForm
+              setTip={setTip}
+              tip={tip}
+            />
 
-        />
+            <OrderTotals
+              order={order}
+              tip={tip}
+              placeOrder={placeOrder}
+            />
+          </>
+        ) : (
+          <p>Orden esta vacia</p>
+        )}
+
 
       </div>
+
+
       
 
      </main>
