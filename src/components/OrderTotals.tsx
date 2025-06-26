@@ -1,8 +1,6 @@
 import {  useCallback } from 'react'
 import { formatCurrency } from '../helper'
 import type { OrderItem } from '../types'
-import  useOrder  from '../hooks/useOrder'
-import OrderSaved from './OrderSaved'
 
 
 
@@ -13,7 +11,6 @@ type OrderTotalsProps = {
 }
 
 export default function OrderTotals({order, tip, placeOrder} : OrderTotalsProps) {
-  const { orderSaved } = useOrder();
 
     const subtotalAmount = useCallback(() => order.reduce((total, item) => total + (item.quantity * item.price), 0), [order])
 
@@ -47,12 +44,9 @@ export default function OrderTotals({order, tip, placeOrder} : OrderTotalsProps)
           > {/*Almacenar la orden o reiniciar la orden*/}
             Guardar orden
           </button>
-
-          {orderSaved && <OrderSaved />}
         </>
 
     )
 
 }
 
-// Este componente es para mostrar el total de la orden y el boton de pagar

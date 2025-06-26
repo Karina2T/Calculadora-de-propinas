@@ -13,7 +13,9 @@ export default function useOrder() { /*Custome hook */
 
     const [tip, setTip] = useState(0)
 
-    const [orderSaved, setOrderSaved ] = useState(false)
+    //Estado para mostrar el mensaje "Orden guardada"
+    const [orderSavedView, setOrderSavedView] = useState(false)
+
 
 
     const MAX_ITEMS = 50; //Maximo de items que se pueden agregar a la orden
@@ -49,14 +51,16 @@ export default function useOrder() { /*Custome hook */
         setOrder(order.filter(item => item.id !== id ))
     }
 
+
+    //Funcion que actualiza el estado del boton, para pasarlo a true caundo el User haga click en el boton
     const placeOrder = () => {
-        setOrderSaved(true); //Muestra el mensaje primero
+        setOrderSavedView(true); //Mostrar la vista de "Orden Guardada"
 
         setTimeout(() => {
-            setOrder([]);
-            setOrderSaved(false)
-            setTip(0)
-        }, 3000)
+            setOrder([]);  //Limpiar la orden
+            setTip(0);     //Reiniciando la propina
+            setOrderSavedView(false) //Ocultar la vista de exito
+        }, 4000);  //Espera 2 segundo 
     }
 
 
@@ -67,7 +71,7 @@ export default function useOrder() { /*Custome hook */
         addItem,
         removeItem,//Exportamos la funcion para hacerlo disponible en otros componentes
         placeOrder,
-        orderSaved,
-        setOrderSaved
+        orderSavedView,
+        setOrderSavedView
     }
 }
