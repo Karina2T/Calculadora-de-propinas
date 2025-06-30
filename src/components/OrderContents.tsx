@@ -35,7 +35,7 @@ export default function OrderContents({order, removeItem} : OrderContentsProps){
                         </div>
 
                             <button
-                              className="bg-teal-700 h-8 w-8 rounded-full text-white font-black"
+                              className="bg-teal-700 h-8 w-8 rounded-full text-white font-black cursor-pointer"
                               onClick={() => removeItem(item.id) /*Llamamos a la funcion removeItem que viene del props y le pasamos el id del item*/}
                             >
                                 X
