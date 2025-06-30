@@ -12,7 +12,7 @@ import  useOrder  from './hooks/useOrder'
 function App(){
 
   {/*Estado global/global state */}
-  const { order, addItem, removeItem, tip, setTip, placeOrder, setOrderSavedView, orderSavedView} = useOrder() //Extraemos la funcion para usarlo en nuestros componentes
+  const { order, addItem, removeItem, tip, setTip, placeOrder, orderSavedView} = useOrder() //Extraemos la funcion para usarlo en nuestros componentes
  
   return(
     <>
