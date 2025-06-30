@@ -37,7 +37,7 @@ export default function TipPercentageForm({setTip, tip}: TipPercentageFromProps)
 
          <form>
             {tipOptions.map(tipOption => (
-                <div key={tipOption.id} className="flex items-center gap-2">
+                <div key={tipOption.id} className="flex items-center gap-2 cursor-pointer">
                     <label htmlFor={tipOption.id}>{tipOption.label}</label>
                     <input 
                        id={tipOption.id}
